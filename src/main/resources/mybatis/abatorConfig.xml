@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE abatorConfiguration PUBLIC "-//Apache Software Foundation//DTD Abator for iBATIS Configuration 1.0//EN" "http://ibatis.apache.org/dtd/abator-config_1_0.dtd" >
+<abatorConfiguration >
+  <abatorContext >
+    <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://127.0.0.1:3307/mybatisTest" userId="root" password="root" >
+      <classPathEntry location="/Users/builder/.m2/repository/mysql/mysql-connector-java/5.1.18/mysql-connector-java-5.1.18.jar" />
+    </jdbcConnection>
+    <javaModelGenerator targetPackage="cn.lcb.cbframework.model" targetProject="cbframework/src/main/java" />
+    <sqlMapGenerator targetPackage="mybatis.mapper" targetProject="cbframework/src/main/resources" />
+    <daoGenerator targetPackage="cn.lcb.cbframework.dao" targetProject="cbframework/src/main/java" type="SPRING" >
+    	<property name="enableSubPackages" value="true" />
+    </daoGenerator>
+    
+    <table schema="user" tableName="user01" >
+      
+    </table>
+  </abatorContext>
+</abatorConfiguration>
