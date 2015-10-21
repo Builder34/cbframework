@@ -8,6 +8,7 @@
   <name>cbframework Maven Webapp</name>
   <url>http://maven.apache.org</url>
   
+  <!-- 依赖版本属性管理 -->
   <properties>
   	<spring.version>3.2.5.RELEASE</spring.version>
   </properties>
