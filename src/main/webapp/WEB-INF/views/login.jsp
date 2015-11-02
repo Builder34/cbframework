@@ -11,7 +11,7 @@
     String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/" ;
 %>
 <!DOCTYPE html>
-<html>
+<html lang="zh">
 <head>
     <base href="<%=basePath%>" />
     <link rel="shortcut icon" href="statics/favicons.png" />

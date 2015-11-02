@@ -32,25 +32,28 @@ public class LoginController {
     @RequestMapping
     public ModelAndView toLogin() throws Exception{
         ModelAndView mv = new ModelAndView() ;
-        mv.setViewName("/login") ;
+        mv.setViewName("/main") ;
         mv.addObject("login","login") ;
 
         return mv ;
     }
 
     @RequestMapping(value="verify",produces="application/json;charset=utf-8")
-    @ResponseBody()
-    public String verify(HttpServletRequest request,HttpServletResponse response) throws Exception{
+    public ModelAndView verify(HttpServletRequest request,HttpServletResponse response) throws Exception{
+        ModelAndView mv = new ModelAndView() ;
         String nickName = request.getParameter("nickName") ;
         String loginpassword = request.getParameter("loginpassword") ;
         if(this.getManagerService().checkLogin(nickName,loginpassword)){
             request.getSession().setAttribute("nickName",nickName) ;
-            response.sendRedirect("/index") ;
+            //response.sendRedirect("/index") ;
+            mv.setViewName("/main") ;
             logger.info("登录成功");
-            return "登录成功！" ;
+            return mv ;
         }else{
             logger.info("登录失败,用户名或密码错误!");
-            return "用户名或密码错误！" ;
+            mv.setViewName("/login");
+            mv.addObject("message","用户名或密码错误！");
+            return mv ;
         }
     }
     @RequestMapping("logout")
