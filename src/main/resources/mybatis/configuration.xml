@@ -21,5 +21,6 @@
 	<!-- mapper映射文件 -->
 	<mappers>
 		<mapper resource="mybatis/mapper/SysInfoUser.xml" />
+        <mapper resource="mybatis/mapper/SysPrivilege.xml" />
 	</mappers>
 </configuration>

@@ -1,6 +1,7 @@
 package cn.lcb.cbframework.controller.platform;
 
 import cn.lcb.cbframework.model.SysInfoUser;
+import cn.lcb.cbframework.model.SysLogLog;
 import cn.lcb.cbframework.service.SysInfoUserService;
 import cn.lcb.cbframework.util.BusinessException;
 
@@ -18,6 +19,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Created by Builder34 on 2015-10-25.
@@ -42,7 +44,6 @@ public class LoginController {
     public ModelAndView toLogin() throws Exception{
         ModelAndView mv = new ModelAndView() ;
         mv.setViewName("/login") ;
-
         return mv ;
     }
 	/**
@@ -50,12 +51,14 @@ public class LoginController {
 	 * */
     @RequestMapping(value="verify",produces="application/json;charset=utf-8")
     @ResponseBody
-    public String verify(String loginname,String password,HttpServlet session,HttpServletRequest request){
+    public String verify(String loginName,String loginPassword,String clickCode,HttpSession session,HttpServletRequest request){
     	try{
-    		
+    		this.sysInfoUserService.userLogin(loginName,loginPassword,clickCode,session,request) ;
+            //获取上次登录时间-->第一次登录：上次登录时间为0
     	}catch(BusinessException e){
     		e.printStackTrace();
     	}
+
     	return null ;
     }
     /**

@@ -48,17 +48,17 @@
 	    </c:if>
         -->
         <div class="login_form">
-            <input type="hidden" value="${randomKey }" id="j_randomKey" />
+            <%--<input type="hidden" value="${randomKey }" id="j_randomKey" />--%>
             <form action="login/verify" id="login_form" method="post">
                 <input type="hidden" name="jfinal_token" value="${jfinal_token }" />
                 <div class="form-group">
-                    <label for="j_username" class="t">用户名：</label> <input id="j_username" value="" name="nickName" type="text" class="form-control x319 in" autocomplete="off">
+                    <label for="j_username" class="t">用户名：</label> <input id="j_username" value="" name="loginName" type="text" class="form-control x319 in" autocomplete="off">
                 </div>
                 <div class="form-group">
-                    <label for="j_password" class="t">密　码：</label> <input id="j_password" value="" name="loginpassword" type="password" class="form-control x319 in">
+                    <label for="j_password" class="t">密　码：</label> <input id="j_password" value="" name="loginPassword" type="password" class="form-control x319 in">
                 </div>
                 <div class="form-group">
-                    <label for="j_captcha" class="t">验证码：</label> <input id="j_captcha" name="j_captcha" type="text" class="form-control x164 in">
+                    <label for="j_captcha" class="t">验证码：</label> <input id="j_captcha" name="clickCode" type="text" class="form-control x164 in">
                     <img id="captcha_img" alt="点击更换" title="点击更换" src="code.jsp" class="m" onclick="changeCodeImage()" />
                 </div>
                 <div class="form-group">
@@ -102,13 +102,13 @@
             //加密算法，暂时不用先
             //var password = HMAC_SHA256_MAC($("#j_username").val(), $("#j_password").val());
             //$("#j_password").val(HMAC_SHA256_MAC($("#j_randomKey").val(), password));
-            var code = "<%=session.getAttribute("code")%>";
-            alert(code) ;
-            if($("#j_captcha").val != code ){
-                alert("验证码错误，请重新输入");
-                issubmit = false ;
-                changeCodeImage() ;
-            }
+            <%--var code = "<%=session.getAttribute("code")%>";--%>
+            <%--alert(code) ;--%>
+            <%--if($("#j_captcha").val != code ){--%>
+                <%--alert("验证码错误，请重新输入");--%>
+                <%--issubmit = false ;--%>
+                <%--changeCodeImage() ;--%>
+            <%--}--%>
             return issubmit;
         });
     }) ;

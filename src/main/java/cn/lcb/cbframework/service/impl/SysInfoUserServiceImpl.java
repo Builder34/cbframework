@@ -42,12 +42,14 @@ public class SysInfoUserServiceImpl implements SysInfoUserService {
 	
 	@Override
 	public void userLogin(String userName, String passWord, String code, HttpSession session,
-			HttpServletRequest request) throws Exception {
+			HttpServletRequest request) throws BusinessException {
 		
 		Object codeObj = session.getAttribute("code") ;
-		if(code.equals(codeObj)){
-			throw new Exception("验证码错误！") ;
+		if(!code.equals(codeObj)){
+            System.out.println(codeObj+"****输入的："+code) ;
+			throw new BusinessException("验证码错误！") ;
 		}
+
 		//登录前先清空session
 		UserInfo.destory(session);
 		

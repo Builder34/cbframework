@@ -42,14 +42,13 @@
         <property name="dataSource" ref="dataSource"></property>
     </bean>
     <!--Dao 接口配置-->
-    <bean id="managerDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
-        <property name="mapperInterface" value="cn.lcb.cbframework.dao.ManagerDao"></property>
-        <property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
-    </bean>
     <bean id="sysInfoUserDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
     	<property name="mapperInterface" value="cn.lcb.cbframework.dao.SysInfoUserDao"></property>
         <property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
     </bean>
-
+    <bean id="managerDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="mapperInterface" value="cn.lcb.cbframework.dao.SysPrivilegeDao"></property>
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+    </bean>
 
 </beans>
