@@ -99,6 +99,11 @@
 			<artifactId>druid</artifactId>
 			<version>1.0.13</version>
 		</dependency>
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.1</version>
+		</dependency>
 
         <!-- slf4j日志配置 -->
         <dependency>

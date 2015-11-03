@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="SysPrivilege">
+<mapper namespace="cn.lcb.cbframework.dao.SysPrivilegeDao">
 
 	<!-- 通过ID 查询信息 -->
 	<select id="getSysPrivilegeById" parameterType="java.lang.Long" resultType="cn.lcb.cbframework.model.SysPrivilege">
@@ -23,7 +23,7 @@
 	</insert>
 	
 	<!-- 通过用户ID 获取该用户所有权限 -->
-	<select id="getsysprivilegeByUserId" parameterType="java.lang.Long" resultType="cn.lcb.cbframework.model.SysPrivilege">
+	<select id="getsysprivilegeByUserId" parameterType="java.lang.Long" resultType="java.util.ArrayList">
 		SELECT a.* FROM sysprivilege a 
 		  LEFT JOIN sysinfouser b  ON a.roleId = b.roleId
 		WHERE b.userId = #{userId}

@@ -11,9 +11,9 @@ import java.sql.Timestamp;
 
 public class SysInfoUser
 {
-	public static final int STATUS_NOMAL = 1;
+	public static final int STATUS_NOMAL = 1; //账号正常
 	    
-	public static final int STATUS_FREEZE = 0;
+	public static final int STATUS_FREEZE = 0; //账号无效
 	    
 	private long userId;//用户ID
 	private int roleId ;//角色ID

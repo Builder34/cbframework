@@ -1,10 +1,18 @@
 package cn.lcb.cbframework.service;
 
-import java.util.Map;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
-import cn.lcb.cbframework.model.SysInfoUser;
 
 public interface SysInfoUserService {
 
-	public SysInfoUser getLoginInfo(Map<String,Object> params) ;
+	/**
+	 * 处理用户登录
+	 * @param loginName
+	 * @param password
+	 * @param session
+	 * @throws BusinessException  
+	 */
+	public void userLogin( String userName, String passWord,String code, HttpSession session ,HttpServletRequest request) 
+			throws Exception ; 
 }
