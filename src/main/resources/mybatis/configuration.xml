@@ -20,6 +20,6 @@
 
 	<!-- mapper映射文件 -->
 	<mappers>
-		<mapper resource="mybatis/mapper/ManagerDaoMapper.xml" />
+		<mapper resource="mybatis/mapper/SysInfoUser.xml" />
 	</mappers>
 </configuration>
