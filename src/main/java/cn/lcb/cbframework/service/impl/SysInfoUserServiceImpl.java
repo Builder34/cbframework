@@ -65,9 +65,9 @@ public class SysInfoUserServiceImpl implements SysInfoUserService {
 			throw new BusinessException("用户被冻结！");
 		}else{
 			//正常登录，获取用户所有角色，所有权限
-			List<SysPrivilege> sysPrivilege = sysPrivilegeDao.getsysprivilegeByUserId(sysInfoUser.getUserId()) ;
+			//List<SysPrivilege> sysPrivilege = sysPrivilegeDao.getsysprivilegeByUserId(sysInfoUser.getUserId()) ;
 			//设置session
-			UserInfo.setUserSession(session, sysInfoUser, sysPrivilege) ;
+			UserInfo.setUserSession(session, sysInfoUser, null) ;
 		}
 		
 	}
