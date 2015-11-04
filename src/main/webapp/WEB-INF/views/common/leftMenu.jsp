@@ -9,21 +9,22 @@
 
             <div class="panel panel-default">
                 <div class="panel-heading panelContent">
-                    <h4 class="panel-title"><a data-toggle="collapse" data-parent="#bjui-accordionmenu" href="#bjui-collapse0" class="active"><i class="fa fa-caret-square-o-down"></i>&nbsp;个人办公</a></h4>
+                    <h4 class="panel-title"><a data-toggle="collapse" data-parent="#bjui-accordionmenu" href="#bjui-collapse0" class="active"><i class="fa fa-caret-square-o-down"></i>&nbsp;公众号用户</a></h4>
                 </div>
-                <div id="bjui-collapse0" class="panel-collapse panelContent collapse in">
-                    <div class="panel-body" >
-                        <ul id="bjui-tree0" class="ztree ztree_main" data-toggle="ztree" data-on-click="MainMenuClick" data-expand-all="true">
-                        	<li data-id="passRead" data-pid="0">传阅管理</li>
-                        	<li data-id="passRead_0" data-pid="passRead" data-url="<%=request.getContextPath()%>/article/index.do" data-tabid="passRead_0" data-fresh="true" data-reloadWarn="true">收到传阅</li>
-                            <li data-id="passRead_1" data-pid="passRead" data-url="<%=request.getContextPath()%>/user/index.do" data-tabid="passRead_1" data-fresh="true" data-reloadWarn="true">发送传阅</li>
-                            <li data-id="flow" data-pid="0">流程管理</li>
-                        	<li data-id="flow_0" data-pid="flow" data-url="<%=request.getContextPath()%>/article/index.do" data-tabid="flow_0" data-fresh="true" data-reloadWarn="true">待办流程</li>
-                            <li data-id="flow_1" data-pid="flow" data-url="<%=request.getContextPath()%>/user/index.do" data-tabid="flow_1" data-fresh="true" data-reloadWarn="true">发起流程</li>
-                            <li data-id="flow_2" data-pid="flow" data-url="<%=request.getContextPath()%>/user/index.do" data-tabid="flow_2" data-fresh="true" data-reloadWarn="true">所有流程</li>
-                        </ul>
-                    </div>
-                </div>
+                <ul id="bjui-hnav-navbar">
+                    <li class="active"><a href="javascript:;" data-toggle="slidebar"><i class="fa fa-check-square-o"></i>公众号管理</a>
+                        <div class="items hide" data-noinit="true">
+                            <ul class="menu-items" data-faicon="list">
+                                <li><a data-url="wechatUser/list"  data-options="{faicon:'th-large'}">注册用户列表</a></li>
+                                <li><a href="form-select.html" data-options="{faicon:'th-large'}">用户信息信息</a></li>
+                                <li><a href="form-checkbox.html" data-options="{faicon:'th-large'}">菜单管理</a></li>
+                            </ul>
+                            <ul class="menu-items" data-tit="系统管理" data-faicon="list">
+                                <li><a href="form.html" data-options="{id:'form-demo', faicon:'th-large'}">管理员设置</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
                 <div class="panelFooter"><div class="panelFooterContent"></div></div>
             </div>
             

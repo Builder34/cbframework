@@ -15,6 +15,6 @@ public interface SysInfoUserService {
 	 * @param session
 	 * @throws BusinessException  
 	 */
-	public void userLogin( String userName, String passWord,String code, HttpSession session ,HttpServletRequest request) 
+	public boolean userLogin( String userName, String passWord,String code, HttpSession session ,HttpServletRequest request)
 			throws BusinessException;
 }

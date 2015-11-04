@@ -41,18 +41,16 @@ public class SysInfoUserServiceImpl implements SysInfoUserService {
 	}
 	
 	@Override
-	public void userLogin(String userName, String passWord, String code, HttpSession session,
-			HttpServletRequest request) throws BusinessException {
-		
+	public boolean userLogin(String userName, String passWord, String code, HttpSession session,HttpServletRequest request) throws BusinessException {
+		boolean flag = false ; //登录标记
 		Object codeObj = session.getAttribute("code") ;
 		if(!code.equals(codeObj)){
             System.out.println(codeObj+"****输入的："+code) ;
 			throw new BusinessException("验证码错误！") ;
 		}
-
 		//登录前先清空session
 		UserInfo.destory(session);
-		
+		//传递参数
 		Map<String,Object> params = new HashMap<String,Object>() ;
 		params.put( "userName" , userName ) ;
 		params.put( "passWord" , passWord ) ;
@@ -68,8 +66,9 @@ public class SysInfoUserServiceImpl implements SysInfoUserService {
 			//List<SysPrivilege> sysPrivilege = sysPrivilegeDao.getsysprivilegeByUserId(sysInfoUser.getUserId()) ;
 			//设置session
 			UserInfo.setUserSession(session, sysInfoUser, null) ;
+            flag = true ; //用户登录检验成功
 		}
-		
+        return flag ;
 	}
 
 }

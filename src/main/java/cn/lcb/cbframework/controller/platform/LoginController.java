@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -51,9 +52,16 @@ public class LoginController {
 	 * */
     @RequestMapping(value="verify",produces="application/json;charset=utf-8")
     @ResponseBody
-    public String verify(String loginName,String loginPassword,String clickCode,HttpSession session,HttpServletRequest request){
+    public String verify(String loginName,String loginPassword,String clickCode,HttpSession session,HttpServletRequest request,HttpServletResponse response){
     	try{
-    		this.sysInfoUserService.userLogin(loginName,loginPassword,clickCode,session,request) ;
+    		boolean flag = this.sysInfoUserService.userLogin(loginName,loginPassword,clickCode,session,request) ;
+            if (flag) {
+                try {
+                    response.sendRedirect("/index");
+                }catch(IOException e){
+                    e.printStackTrace();
+                }
+            }
             //获取上次登录时间-->第一次登录：上次登录时间为0
     	}catch(BusinessException e){
     		e.printStackTrace();
