@@ -1,19 +1,21 @@
 package cn.lcb.cbframework.controller.platform;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+
+import cn.lcb.cbframework.util.FunctionURL;
+import cn.lcb.cbframework.util.PlatformURL;
 
 import javax.servlet.http.HttpServletRequest;
 
 
 @Controller
-@RequestMapping("/index")
+@RequestMapping(PlatformURL.ADMIN)
 public class IndexController {
 
 
-    @RequestMapping
+    @RequestMapping(value=FunctionURL.INDEX)
 	public ModelAndView index(HttpServletRequest request) throws Exception{
 		ModelAndView mv = new ModelAndView() ;
 		mv.addObject("adminName",request.getSession().getAttribute("nickName") ) ;
