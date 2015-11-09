@@ -1,7 +1,7 @@
 package cn.lcb.cbframework.dao;
 
+import cn.lcb.cbframework.common.BaseDao;
 import cn.lcb.cbframework.model.RegisterUser;
-import cn.lcb.cbframework.util.BaseDao;
 
 public interface RegisterUserDao extends BaseDao {
 

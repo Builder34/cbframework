@@ -1,4 +1,4 @@
-package cn.lcb.cbframework.util;
+package cn.lcb.cbframework.common;
 
 /**
  * Controller的平台URL

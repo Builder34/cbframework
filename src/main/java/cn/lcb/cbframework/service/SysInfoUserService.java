@@ -1,9 +1,9 @@
 package cn.lcb.cbframework.service;
 
-import cn.lcb.cbframework.util.BusinessException;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+
+import cn.lcb.cbframework.common.BusinessException;
 
 
 public interface SysInfoUserService {

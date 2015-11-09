@@ -11,12 +11,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
+import cn.lcb.cbframework.common.BusinessException;
 import cn.lcb.cbframework.dao.SysInfoUserDao;
 import cn.lcb.cbframework.dao.SysPrivilegeDao;
 import cn.lcb.cbframework.model.SysInfoUser;
 import cn.lcb.cbframework.model.SysPrivilege;
 import cn.lcb.cbframework.service.SysInfoUserService;
-import cn.lcb.cbframework.util.BusinessException;
 import cn.lcb.cbframework.util.UserInfo;
 
 @Service("sysInfoUserService")
