@@ -20,7 +20,7 @@
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
 		init-method="init" destroy-method="close">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
-		<property name="url" value="jdbc:mysql://198.199.93.31:3306/cbframework?useUnicode=true&amp;characterEncoding=UTF-8"></property>
+		<property name="url" value="jdbc:mysql://127.0.0.1:3307/cbframework?useUnicode=true&amp;characterEncoding=UTF-8"></property>
 		<property name="username" value="root"></property>
         <property name="password" value="root"></property>
 		<property name="filters" value="stat" />
@@ -46,9 +46,9 @@
     	<property name="mapperInterface" value="cn.lcb.cbframework.dao.SysInfoUserDao"></property>
         <property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
     </bean>
-    <bean id="managerDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+    <!-- <bean id="managerDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
         <property name="mapperInterface" value="cn.lcb.cbframework.dao.SysPrivilegeDao"></property>
         <property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
-    </bean>
+    </bean> -->
 
 </beans>

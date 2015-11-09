@@ -25,20 +25,20 @@ public class SysInfoUserServiceImpl implements SysInfoUserService {
 
 	@Autowired
 	public SysInfoUserDao sysInfoUserDao ;  //登录用户dao
-	@Autowired
-	public SysPrivilegeDao sysPrivilegeDao ;  //权限dao 
+//	@Autowired
+//	public SysPrivilegeDao sysPrivilegeDao ;  //权限dao 
 	public SysInfoUserDao getSysInfoUserDao() {
 		return sysInfoUserDao;
 	}
 	public void setSysInfoUserDao(SysInfoUserDao sysInfoUserDao) {
 		this.sysInfoUserDao = sysInfoUserDao;
 	}
-	public SysPrivilegeDao getSysPrivilegeDao() {
-		return sysPrivilegeDao;
-	}
-	public void setSysPrivilegeDao(SysPrivilegeDao sysPrivilegeDao) {
-		this.sysPrivilegeDao = sysPrivilegeDao;
-	}
+//	public SysPrivilegeDao getSysPrivilegeDao() {
+//		return sysPrivilegeDao;
+//	}
+//	public void setSysPrivilegeDao(SysPrivilegeDao sysPrivilegeDao) {
+//		this.sysPrivilegeDao = sysPrivilegeDao;
+//	}
 	
 	@Override
 	public boolean userLogin(String userName, String passWord, String code, HttpSession session,HttpServletRequest request) throws BusinessException {
