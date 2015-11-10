@@ -1,48 +1,171 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Builder34
-  Date: 2015-10-31
-  Time: 22:24
-  To change this template use File | Settings | File Templates.
---%>
+<!DOCTYPE HTML>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<!DOCTYPE html>
+<%
+    String path = request.getContextPath() ;
+    String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/" ;
+%>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="http://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.css">
-    <script src="http://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="http://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	<base href="<%=basePath%>" />
+	<title>Warren-JQM实战Demo</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="http://apps.bdimg.com/libs/jquerymobile/1.3.0/jquery.mobile-1.3.0.min.css">
+	<link rel="stylesheet" href="jqmDemo/css/frame/ios_inspired/styles.css" rel="stylesheet" />
+	<link rel="stylesheet" href="jqmDemo/css/global.css">
+
+    <script src="http://apps.bdimg.com/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="http://apps.bdimg.com/libs/jquerymobile/1.3.0/jquery.mobile-1.3.0.min.js"></script>
+    
+	<script type="text/javascript" charset="utf-8" src="jqmDemo/js/frame/iscroll.js"></script>
+	<script type="text/javascript" charset="utf-8" src="jqmDemo/js/global.js"></script>
 </head>
+
 <body>
+	<div data-role="page" id="loginPage" data-dom-cache="true">
+	<script type="text/javascript">
+		$("#loginPage").live('pageinit', function() {
+		 //bind swipe event
+             $('#loginPage').bind("swipeleft",function(){
+                    $.mobile.changePage('#regPage',{ transition: "slide"});
+                });
+			});
+		$("#regPage").live("pageshow", function() {
+		});
+	</script>
+		<div data-role="header" data-theme="b">
+			<h1>登陆</h1>
+		</div>
+		<div data-role="content" data-theme="d">
+			<form action="${basePath}ajax!login" method="post" id="loginForm">
+				<div data-role="fieldcontain" class="ui-hide-label">
+					<label for="username"> 用户名: </label> <input type="text"
+						name="username" id="username" placeholder="用户名" /> <label
+						for="password"> 密码: </label> <input type="password"
+						name="password" id="password" placeholder="密码" />
+				</div>
+				<div data-role="fieldcontain">
+					<fieldset data-role="controlgroup" data-type="horizontal"
+						data-mini="true">
+						<legend>登陆信息:</legend>
+						<input type="radio" name="saveRadio" id="saveRadio-a" value="1" />
+						<label for="saveRadio-a">保存</label> <input type="radio"
+							name="saveRadio" id="saveRadio-b" value="0" checked="checked" />
+						<label for="saveRadio-b">不保存</label>
+					</fieldset>
+				</div>
+				<a href="#" id="loginButton" data-role="button" data-theme="e"
+					onClick="goTo('content.html')">登陆 </a> 
+					<br/>
+					未建立帐号？ <a href="javascript:void(0)" onclick="goTo('#regPage')"
+					id="regButton" >点击注册</a>
+			</form>
+		</div>
+	</div>
+	
+	<!-- reg page -->
+	<div data-role="page" id="regPage" data-dom-cache="true" >
+		<script type="text/javascript">
+		$("#regPage").live('pageinit', function() {
+		 //bind swipe event
+			 $('#regPage').bind("swiperight",function(){
+                    $.mobile.changePage('#loginPage',{ transition: "slide", reverse:true});
+                });
+             $('#regPage').bind("swipeleft",function(){
+                    $.mobile.changePage('#imgPage',{ transition: "slide"});
+                });
+			});
+		$("#regPage").live("pageshow", function() {
+		});
+	</script>
+		<div data-role="header"  data-theme="b">
+		<span class="ui-btn-left">
+		<a href="#loginPage" 
+		data-role="button" data-inline="true" data-icon="back"
+		class="ui-btn-left">返回</a> 
+		</span>
+		<h1>
+			注册
+		</h1>
+		</div>
+		<div data-role="content" data-theme="d">
+			<form action="#" method="post" id="regForm">
+				<div data-role="fieldcontain" class="ui-hide-label">
+					    <input type="text" name="username" id="username" placeholder="用户名" /> 
+						<input type="password" name="password" id="password" placeholder="密码" />
+						<input type="password" name="password2" id="password2" value=""
+							placeholder=" 确认密码" />
+						<a href="#"  data-role="button"  onclick="goTo('#imgPage')">选择头像</a>
+						<div id="headimg" class="seleced-user-head-img"></div>
+				</div>
 
-<div data-role="page">
-    <div data-role="header">
-        <h1>个人中心</h1>
-    </div>
-
-    <div data-role="main" class="ui-content">
-
-        <div class="ui-content" style="min-width:250px;">
-            <form method="post" action="demoform.php">
-                <div>
-                    <h3>登录信息</h3>
-                    <label for="usrnm" class="ui-hidden-accessible">用户名:</label>
-                    <input type="text" name="user" id="usrnm" placeholder="请输入您的用户名">
-                    <label for="pswd" class="ui-hidden-accessible">密码:</label>
-                    <input type="password" name="passw" id="pswd" placeholder="请输入您的密码">
-                    <%--<label for="log">保存登录</label>--%>
-                    <%--<input type="checkbox" name="login" id="log" value="1" data-mini="true">--%>
-                    <button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-right ui-icon-arrow-r">登录</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <div data-role="footer">
-        <h1></h1>
-    </div>
-</div>
-
+				<a href="#loginPage" id="regButton" data-role="button" data-theme="e">注册</a>
+				<a href="#loginPage" data-role="button" data-theme="c">取消</a>
+			</form>
+		</div>
+	</div>
+	<!-- user head img  page -->
+	<div data-role="page" id="imgPage" data-dom-cache="true">
+	<script type="text/javascript">
+		var myScroll;
+		function loaded4() {
+			if(myScroll!=null){
+				myScroll.destroy();
+			}
+			myScroll = new iScroll("wrapperHead",{checkDOMChange:false});
+		}
+		function selectImg(img){
+			$("#headimg").html("<img src=\"img/headpic/"+img+".jpg\" onerror=\"errpic(this)\"/>")
+			goTo("#regPage");
+		}
+		$("#imgPage").live('pageinit', function() {
+			var content = ""
+				for (var i=1;i<11;i++){
+						content = content + "<li>";
+						content = content + "<a href=\"#\"><img src=\"img/headpic/"+i+".jpg\" onerror=\"errpic(this)\" onclick=\"selectImg("+i+")\"/></a>";
+						content = content + "</li>";
+					}
+			   $("#headpicul").append(content);
+			   
+			   //bind swipe event
+			   $('#imgPage').bind("swiperight",function(){
+                    $.mobile.changePage('#regPage',{ transition: "slide", reverse:true});
+                });
+			});
+		$("#imgPage").live("pagebeforeshow", function(){
+			setTimeout(loaded4, 200); 
+		});
+				
+		$("#imgPage").live('pageshow', function() {
+			
+		});
+	
+	</script>
+			<div data-role="header" data-theme="b">
+				<span class="ui-btn-left"> <a href="#regPage"
+					data-role="button" data-inline="true" data-icon="back"
+					class="ui-btn-left">返回</a> </span>
+				<h1>
+					选择头像
+				</h1>
+			</div>
+			<div data-role="content">
+			<div id="wrapperHead" class="wrapper">
+					<div id="scrollerHead" class="scroller">
+						<ul id="headpicul" class="gallery">
+						<!-- 
+							<li>
+								<a href="#"><img src="img/headpic/1.jpg" onerror="errpic(this)" onclick="selectImg(1)"/></a>
+							</li>
+							<li>
+								<img src="img/headpic/2.jpg" onerror="errpic(this)" />
+							</li>  -->
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		
 </body>
+
 </html>

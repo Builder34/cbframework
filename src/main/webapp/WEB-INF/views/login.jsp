@@ -100,15 +100,10 @@
             }
             $("#login_ok").attr("disabled", true).val('登陆中..');
             //加密算法，暂时不用先
-            //var password = HMAC_SHA256_MAC($("#j_username").val(), $("#j_password").val());
-            //$("#j_password").val(HMAC_SHA256_MAC($("#j_randomKey").val(), password));
-            <%--var code = "<%=session.getAttribute("code")%>";--%>
-            <%--alert(code) ;--%>
-            <%--if($("#j_captcha").val != code ){--%>
-                <%--alert("验证码错误，请重新输入");--%>
-                <%--issubmit = false ;--%>
-                <%--changeCodeImage() ;--%>
-            <%--}--%>
+            var password = HMAC_SHA256_MAC($("#j_username").val(), $("#j_password").val());
+            $("#j_password").val(HMAC_SHA256_MAC($("#j_randomKey").val(), password));
+            alert($("#j_password").val()) ;
+            
             return issubmit;
         });
     }) ;

@@ -9,24 +9,24 @@ function goTo(page) {
 	$.mobile.changePage(page, {
 		  transition: "slide"
 		});
-}
+};
 function goBack() {
 	$.mobile.back();
-}
+};
 
 function showLoading(){
 	$.mobile.loadingMessageTextVisible = true;
 	$.mobile.showPageLoadingMsg("a", "加载中..." );
-}
+};
 
 
 function hideLoading(){
 	$.mobile.hidePageLoadingMsg();
-}
+};
 
 function errpic(thepic) {
 	thepic.src = "../img/no_pic.png" 
-}
+};
 
 function getUrlParam(string) {  
     var obj =  new Array();  
@@ -39,7 +39,7 @@ function getUrlParam(string) {
 	        }  
 	    }  
 	    return obj;  
-} 
+}; 
 
 //init iscroll
 var myScroll;
@@ -50,4 +50,4 @@ function initMyScroll(id){
 		}
 		myScroll = new iScroll(id,{checkDOMChange:false});
 	}
-}
+};
