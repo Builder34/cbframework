@@ -25,7 +25,7 @@ public class RegisterUserController {
 		return mv ;
 	}
 	
-	@RequestMapping(value=FunctionURL.SAVE,produces="")
+	@RequestMapping(value=FunctionURL.SAVE)
 	@ResponseBody
 	public String save(){
 		
