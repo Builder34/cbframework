@@ -7,7 +7,7 @@
 <html>
 <head>
 	<base href="<%=basePath%>" />
-	<title>Warren-JQM实战Demo</title>
+	<title>个人中心-登录</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0" />
 	<link rel="stylesheet" href="http://apps.bdimg.com/libs/jquerymobile/1.3.0/jquery.mobile-1.3.0.min.css">
@@ -33,29 +33,27 @@
 		$("#regPage").live("pageshow", function() {
 		});
 	</script>
-		<div data-role="header" data-theme="b">
-			<h1>登陆</h1>
+		<div data-role="header" data-theme="c">
+			<h1>个人中心</h1>
 		</div>
-		<div data-role="content" data-theme="d">
+		<div data-role="content" data-theme="c">
 			<form action="${basePath}ajax!login" method="post" id="loginForm">
-				<div data-role="fieldcontain" class="ui-hide-label">
-					<label for="username"> 用户名: </label> <input type="text"
-						name="username" id="username" placeholder="用户名" /> <label
-						for="password"> 密码: </label> <input type="password"
-						name="password" id="password" placeholder="密码" />
-				</div>
+                <label for="usrnm" class="ui-hidden-accessible">用户名:</label>
+               	<input type="text" name="user" id="usrnm" placeholder="请输入您的用户名">
+                <label for="pswd" class="ui-hidden-accessible">密码:</label>
+                <input type="password" name="passw" id="pswd" placeholder="请输入您的密码">
 				<div data-role="fieldcontain">
 					<fieldset data-role="controlgroup" data-type="horizontal"
 						data-mini="true">
-						<legend>登陆信息:</legend>
+						<legend>记住登录:</legend>
 						<input type="radio" name="saveRadio" id="saveRadio-a" value="1" />
-						<label for="saveRadio-a">保存</label> <input type="radio"
+						<label for="saveRadio-a">是</label> <input type="radio"
 							name="saveRadio" id="saveRadio-b" value="0" checked="checked" />
-						<label for="saveRadio-b">不保存</label>
+						<label for="saveRadio-b">否</label>
 					</fieldset>
 				</div>
 				<a href="#" id="loginButton" data-role="button" data-theme="e"
-					onClick="goTo('content.html')">登陆 </a> 
+					onClick="goTo('content.html')" data-icon="arrow-r" data-iconpos="right">登陆 </a> 
 					<br/>
 					未建立帐号？ <a href="javascript:void(0)" onclick="goTo('#regPage')"
 					id="regButton" >点击注册</a>
@@ -78,17 +76,17 @@
 		$("#regPage").live("pageshow", function() {
 		});
 	</script>
-		<div data-role="header"  data-theme="b">
+		<div data-role="header"  data-theme="c">
 		<span class="ui-btn-left">
 		<a href="#loginPage" 
 		data-role="button" data-inline="true" data-icon="back"
 		class="ui-btn-left">返回</a> 
 		</span>
 		<h1>
-			注册
+			个人中心-注册
 		</h1>
 		</div>
-		<div data-role="content" data-theme="d">
+		<div data-role="content" data-theme="c">
 			<form action="#" method="post" id="regForm">
 				<div data-role="fieldcontain" class="ui-hide-label">
 					    <input type="text" name="username" id="username" placeholder="用户名" /> 
@@ -99,7 +97,7 @@
 						<div id="headimg" class="seleced-user-head-img"></div>
 				</div>
 
-				<a href="#loginPage" id="regButton" data-role="button" data-theme="e">注册</a>
+				<a href="#loginPage" id="regButton" data-role="button" data-theme="c">注册</a>
 				<a href="#loginPage" data-role="button" data-theme="c">取消</a>
 			</form>
 		</div>
@@ -141,7 +139,7 @@
 		});
 	
 	</script>
-			<div data-role="header" data-theme="b">
+			<div data-role="header" data-theme="c">
 				<span class="ui-btn-left"> <a href="#regPage"
 					data-role="button" data-inline="true" data-icon="back"
 					class="ui-btn-left">返回</a> </span>
