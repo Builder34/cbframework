@@ -102,7 +102,6 @@
             //加密算法，暂时不用先
             var password = HMAC_SHA256_MAC($("#j_username").val(), $("#j_password").val());
             $("#j_password").val(HMAC_SHA256_MAC($("#j_randomKey").val(), password));
-            alert($("#j_password").val()) ;
             
             return issubmit;
         });

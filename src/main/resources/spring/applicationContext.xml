@@ -20,9 +20,9 @@
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
 		init-method="init" destroy-method="close">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
-		<property name="url" value="jdbc:mysql://198.199.93.31:3306/cbframework?useUnicode=true&amp;characterEncoding=UTF-8"></property>
+		<property name="url" value="jdbc:mysql://112.124.102.200:3306/cbframework?useUnicode=true&amp;characterEncoding=UTF-8"></property>
 		<property name="username" value="root"></property>
-        <property name="password" value="root"></property>
+        <property name="password" value="ede1954b"></property>
 		<property name="filters" value="stat" />
 		<property name="maxActive" value="20" />
 		<property name="initialSize" value="5" />
