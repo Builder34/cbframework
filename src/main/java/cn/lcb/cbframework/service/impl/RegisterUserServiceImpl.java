@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import cn.lcb.cbframework.dao.RegisterUserDao;
+import cn.lcb.cbframework.model.RegisterUser;
 import cn.lcb.cbframework.service.RegisterUserService;
 
 @Service
@@ -22,9 +23,13 @@ public class RegisterUserServiceImpl implements RegisterUserService{
 	}
 
 	@Override
-	public List getPageInfoList(Map<String, Object> params) {
-		
-		return this.registerUserDao.getPageInfoList(params) ;
+	public List<RegisterUser> getPageInfoList(Map<String, Object> params) {
+		try{
+			return this.registerUserDao.getPageInfoList(params) ;
+		}catch(Exception e) {
+			e.printStackTrace() ; 
+		}
+		return null ;
 	}
 
 	@Override

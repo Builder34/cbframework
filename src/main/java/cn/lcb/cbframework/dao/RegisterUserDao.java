@@ -1,9 +1,11 @@
 package cn.lcb.cbframework.dao;
 
-import cn.lcb.cbframework.common.BaseDao;
+import java.util.List;
+import java.util.Map;
+
 import cn.lcb.cbframework.model.RegisterUser;
 
-public interface RegisterUserDao extends BaseDao {
+public interface RegisterUserDao   {
 
 	/**
 	 * 注册账号（用户）
@@ -14,5 +16,13 @@ public interface RegisterUserDao extends BaseDao {
 	 * */
 	public RegisterUser findById(Integer userId) throws Exception ;
 	
+	/**
+	 * 列表信息
+	 * */
+	public List<RegisterUser> getPageInfoList(Map<String,Object> params) ;
+	/**
+	 * 列表count
+	 * */
+	public Integer getPageInfoListCount(Map<String,Object> params) ;
 	
 }

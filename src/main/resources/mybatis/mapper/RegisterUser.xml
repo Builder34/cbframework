@@ -20,7 +20,7 @@
 	</select>
 	
 	<!-- 列表信息 -->
-	<select id="getPageInfoList" parameterType="java.util.Map" resultType="java.util.ArrayList" >
+	<select id="getPageInfoList" parameterType="java.util.Map" resultType="cn.lcb.cbframework.model.RegisterUser" >
 		SELECT a.*
 		  FROM register_user a
 		 WHERE 1=1 
