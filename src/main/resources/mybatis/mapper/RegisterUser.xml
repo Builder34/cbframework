@@ -10,33 +10,33 @@
 		useGeneratedKeys="true"
 	>
 		INSERT INTO registeruser 
-		( nickName , password,sex,openId, qq ,email ,phone ,registerTime , updateTime ) VALUES 
-		( #{nickName} , #{password} , #{sex} , #{openId},#{qq },#{email } ,#{phone } ,#{registerTime } ,#{updateTime })
+		( nickName , password,open_id, qq ,email ,phone ,register_time , update_time ) VALUES 
+		( #{nickname} , #{password} , #{openId},#{qq },#{email } ,#{phone } ,#{registerTime } ,#{updateTime })
 	</insert>
 	
 	<!-- 通过ID 查询信息 -->
 	<select id="findById" parameterType="java.lang.Long" resultType="cn.lcb.cbframework.model.RegisterUser">
-		SELECT a.* FROM registeruser a WHERE a.userId = #{userId}
+		SELECT a.* FROM register_user a WHERE a.user_id = #{userId}
 	</select>
 	
 	<!-- 列表信息 -->
-	<select id="getPageInfoList" parameterType="java.util.HashMap" resultType="java.util.HashMap" >
+	<select id="getPageInfoList" parameterType="java.util.Map" resultType="java.util.ArrayList" >
 		SELECT a.*
-		  FROM registeruser a
+		  FROM register_user a
 		 WHERE 1=1 
 		<if test="keyWord != null">
-			AND (a.userName LIKE '%${keyWord}%')
+			AND (a.nickname LIKE '%${keyWord}%')
 		</if>
-		ORDER BY a.createTime DESC
+		ORDER BY a.register_time DESC
 		LIMIT #{start}, #{pageSize}
 	</select>
 	<!-- 列表行数 -->
-	<select id="getPageInfoListCount" parameterType="java.util.HashMap" resultType="java.lang.Integer" >
-		SELECT COUNT(1) AS nums 
-		  FROM registeruser a
+	<select id="getPageInfoListCount" parameterType="java.util.Map" resultType="java.lang.Integer" >
+		SELECT COUNT(1)  
+		  FROM register_user a
 		 WHERE 1=1 
 		<if test="keyWord != null">
-			AND (a.userName LIKE '%${keyWord}%')
+			AND (a.nickname LIKE '%${keyWord}%')
 		</if>
 	</select>
 	

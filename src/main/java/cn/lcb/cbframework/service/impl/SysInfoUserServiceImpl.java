@@ -20,7 +20,6 @@ import cn.lcb.cbframework.service.SysInfoUserService;
 import cn.lcb.cbframework.util.UserInfo;
 
 @Service("sysInfoUserService")
-@Scope("singleton")
 public class SysInfoUserServiceImpl implements SysInfoUserService {
 
 	@Autowired

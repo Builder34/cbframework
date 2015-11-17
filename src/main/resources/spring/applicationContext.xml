@@ -46,8 +46,8 @@
     	<property name="mapperInterface" value="cn.lcb.cbframework.dao.SysInfoUserDao"></property>
         <property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
     </bean>
-    <bean id="managerDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
-        <property name="mapperInterface" value="cn.lcb.cbframework.dao.SysPrivilegeDao"></property>
+    <bean id="registerUserDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="mapperInterface" value="cn.lcb.cbframework.dao.RegisterUserDao"></property>
         <property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
     </bean>
 

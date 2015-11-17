@@ -22,5 +22,6 @@
 	<mappers>
 		<mapper resource="mybatis/mapper/SysInfoUser.xml" />
         <mapper resource="mybatis/mapper/SysPrivilege.xml" />
+        <mapper resource="mybatis/mapper/RegisterUser.xml" />
 	</mappers>
 </configuration>

@@ -3,7 +3,7 @@ package cn.lcb.cbframework.common;
 import java.util.List;
 import java.util.Map;
 
-public interface BaseDao {
+public interface BaseService {
 
 	/**
 	 * 列表信息
@@ -13,4 +13,5 @@ public interface BaseDao {
 	 * 列表count
 	 * */
 	public Integer getPageInfoListCount(Map<String,Object> params) ;
+	
 }

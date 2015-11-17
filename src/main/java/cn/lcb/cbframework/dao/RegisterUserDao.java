@@ -14,4 +14,5 @@ public interface RegisterUserDao extends BaseDao {
 	 * */
 	public RegisterUser findById(Integer userId) throws Exception ;
 	
+	
 }
